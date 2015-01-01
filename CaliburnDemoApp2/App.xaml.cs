@@ -65,7 +65,7 @@ namespace CaliburnDemoApp2
 
             if (e.PreviousExecutionState != ApplicationExecutionState.Running) {
                 //DisplayRootViewFor<MainPageViewModel>();
-                DisplayRootView<MainPage>();
+                DisplayRootView<EventTest2Page>();
                 //DisplayRootView<TestUserControlPage>();
             }
         }
@@ -88,15 +88,39 @@ namespace CaliburnDemoApp2
             _container.RegisterWinRTServices();
 
             // Register your view models at the container
-            _container.PerRequest<MainPageViewModel>();
-            _container.PerRequest<SecondPageViewModel>();
-            _container.PerRequest<WebViewPageViewModel>();
-            _container.PerRequest<TestUserControlPageViewModel>();
+            //_container.PerRequest<MainPageViewModel>();
+            //_container.PerRequest<SecondPageViewModel>();
+            //_container.PerRequest<WebViewPageViewModel>();
+            //_container.PerRequest<TestUserControlPageViewModel>();   
+            //_container.PerRequest<ThirdPageViewModel>();
+
             _container.PerRequest<MyUserControlViewModel>(key: typeof(MyUserControlViewModel).FullName);
-            _container.PerRequest<ThirdPageViewModel>();
+            this.RegisterContainer();
 
             // We want to use the Frame in OnLaunched so set it up here
             PrepareViewFirst();
+        }
+
+        /// <summary>
+        /// 自動尋找在這個Assembly裡面繼承自ViewModelBase or Screen的class並註冊到Container裡面
+        /// </summary>
+        private void RegisterContainer()
+        {
+            Assembly assembly = this.GetType().GetTypeInfo().Assembly;
+            Type viewModelBaseType = typeof(ViewModelBase);
+            Type screenType = typeof(Screen);
+
+            //load ViewModel type that inherited ViewModelBase or Screen
+            var types = from modelType in assembly.GetExportedTypes()
+                        where modelType.GetTypeInfo().BaseType == viewModelBaseType ||
+                              modelType.GetTypeInfo().BaseType == screenType
+                        select modelType;
+
+            foreach (var type in types)
+            {
+                System.Diagnostics.Debug.WriteLine("Registerd ViewModel:{0}", type);
+                _container.RegisterPerRequest(type, type.FullName, type);
+            }
         }
 
         protected override object GetInstance(Type service, string key)

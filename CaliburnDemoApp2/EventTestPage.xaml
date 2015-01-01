@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="CaliburnDemoApp2.EventTestPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:caliburn="using:Caliburn.Micro"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <Button x:Name="TestButton1" Content="Event1"/>
+            <Button x:Name="TestButton2" Content="Event2" 
+                caliburn:Message.Attach="[Event Click] = [Action TestEventMethod()]"/>
+            <Button x:Name="TestButton3" Content="Event3" 
+                caliburn:Message.Attach="[Event Click] = [Action TestButton3($view)]"/>
+            <TextBox x:Name="TextBox1" Text="Text"/>
+            <Button x:Name="TestButton4" Content="Event4" 
+                caliburn:Message.Attach="[Event Click] = [Action TestButton4(TextBox1)]"/>
+        </StackPanel>
+    </Grid>
+</Page>
