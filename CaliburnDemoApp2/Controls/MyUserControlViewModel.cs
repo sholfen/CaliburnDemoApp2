@@ -19,12 +19,25 @@ namespace CaliburnDemoApp2
 
         protected override void OnViewLoaded(object view)
         {
-            if (!string.IsNullOrEmpty(this.Parameter)) {
+            if (!string.IsNullOrEmpty(this.Parameter))
+            {
                 this.MyTextBlock = this.Parameter;
             }
         }
 
-        public string MyTextBlock { get; set; }
+        private string myTextBlock;
+        public string MyTextBlock
+        {
+            get
+            {
+                return this.myTextBlock;
+            }
+            set
+            {
+                this.myTextBlock = value;
+                NotifyOfPropertyChange(() => MyTextBlock);
+            }
+        }
         public string MyTextBlock2 { get; set; }
         public string Parameter { get; set; }
 

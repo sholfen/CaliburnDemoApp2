@@ -80,6 +80,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="UnitTestApp1_TemporaryKey.pfx" />
   </ItemGroup>

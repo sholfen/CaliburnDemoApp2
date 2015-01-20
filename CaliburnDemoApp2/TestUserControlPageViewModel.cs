@@ -28,7 +28,7 @@ namespace CaliburnDemoApp2
 
         public void TestButton()
         {
-
+            throw new Exception("Test Message");
         }
     }
 }

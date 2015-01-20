@@ -20,8 +20,6 @@ namespace CaliburnDemoApp2
         }
     }
 
-
-
     public class ViewModelBase : Screen
     {
         protected INavigationService navigationService;

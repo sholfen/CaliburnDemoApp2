@@ -65,8 +65,9 @@ namespace CaliburnDemoApp2
 
             if (e.PreviousExecutionState != ApplicationExecutionState.Running) {
                 //DisplayRootViewFor<MainPageViewModel>();
-                DisplayRootView<EventTest2Page>();
                 //DisplayRootView<TestUserControlPage>();
+                //DisplayRootView<MainPage>();
+                DisplayRootView<AzureMobileServiceTestPage>();
             }
         }
 
@@ -94,7 +95,7 @@ namespace CaliburnDemoApp2
             //_container.PerRequest<TestUserControlPageViewModel>();   
             //_container.PerRequest<ThirdPageViewModel>();
 
-            _container.PerRequest<MyUserControlViewModel>(key: typeof(MyUserControlViewModel).FullName);
+            //_container.PerRequest<MyUserControlViewModel>(key: typeof(MyUserControlViewModel).FullName);
             this.RegisterContainer();
 
             // We want to use the Frame in OnLaunched so set it up here
@@ -164,6 +165,11 @@ namespace CaliburnDemoApp2
 
             _navigationService.SuspendState();
             deferral.Complete();
+        }
+
+        protected override void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            base.OnUnhandledException(sender, e);
         }
     }
 }
