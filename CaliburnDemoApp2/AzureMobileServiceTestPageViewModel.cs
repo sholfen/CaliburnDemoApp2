@@ -24,7 +24,7 @@ namespace CaliburnDemoApp2
         public AzureMobileServiceTestPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            
+
         }
 
         public async Task SubmitButton()
