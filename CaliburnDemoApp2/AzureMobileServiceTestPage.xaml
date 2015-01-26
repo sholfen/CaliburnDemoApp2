@@ -12,6 +12,7 @@
         <StackPanel>
             <TextBox x:Name="ToDoTextBox" />
             <Button x:Name="SubmitButton" Content="Submit" />
+            <Button x:Name="GetDataButton" Content="Get" />
         </StackPanel>
     </Grid>
 </Page>

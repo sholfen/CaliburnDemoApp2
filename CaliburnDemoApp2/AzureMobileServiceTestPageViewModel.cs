@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace CaliburnDemoApp2
 {
@@ -17,20 +18,29 @@ namespace CaliburnDemoApp2
 
     public class AzureMobileServiceTestPageViewModel : ViewModelBase
     {
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-                                                                "https://peterazuretest.azure-mobile.net/",
-                                                                "IgiHrTTfotmhhwkrqEAMUAqAHcUKla38");
+        public MobileServiceClient _mobileService;
 
         public AzureMobileServiceTestPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            
+            this._mobileService = new MobileServiceClient(
+                "https://peterazuretest.azure-mobile.net/",
+                "IgiHrTTfotmhhwkrqEAMUAqAHcUKla38");
         }
 
         public async Task SubmitButton()
         {
             TodoItem item = new TodoItem { Text = "Awesome item", Complete = false };
-            await MobileService.GetTable<TodoItem>().InsertAsync(item);
+            await _mobileService.GetTable<TodoItem>().InsertAsync(item);
+
+        }
+
+        public async Task GetDataButton()
+        {
+            var table = _mobileService.GetTable<TodoItem>();
+            List<TodoItem> list = await table.ToListAsync();
+            MessageDialog message = new MessageDialog(list.Count().ToString());
+            await message.ShowAsync();
         }
     }
 }
