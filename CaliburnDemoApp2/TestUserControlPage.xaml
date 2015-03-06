@@ -12,9 +12,11 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="aaa3" />
+            <ContentControl x:Name="MyContentControl" />
             <local:MyUserControl caliburn:Bind.Model="{Binding Model}"/>
             <local:MyUserControl caliburn:Bind.Model="CaliburnDemoApp2.MyUserControlViewModel"/>
             <Button Content="Test Button" x:Name="TestButton" />
+            <Button Content="Test Button2" x:Name="TestButton2" />
         </StackPanel>
     </Grid>
 </Page>

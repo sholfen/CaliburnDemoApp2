@@ -65,8 +65,8 @@ namespace CaliburnDemoApp2
 
             if (e.PreviousExecutionState != ApplicationExecutionState.Running) {
                 //DisplayRootViewFor<MainPageViewModel>();
-                //DisplayRootView<TestUserControlPage>();
-                DisplayRootView<MainPage>();
+                DisplayRootView<TestUserControlPage>();
+                //DisplayRootView<MainPage>();
             }
         }
 
