@@ -23,12 +23,8 @@ namespace CaliburnDemoApp2
             //this.Model = IoC.Get<MyUserControlViewModel>();
             //this.Model = new MyUserControlViewModel(this.navigationService);
             //this.Model.Parameter = "aaaaaaa3";
-            this.TestField = "aaaaaaaaaaaaaaaaaa3";
-            this.TestButton2 = "{Binding TestField}";
-
-           // MyContentControl
+            this.TestField = "aaaaaaaaaaaa3";
             Page page = view as Page;
-            //    ViewModelBinder.Bind(rootModel, view, null);
             ContentControl contentControl = page.FindName("MyContentControl") as ContentControl;
             MyUserControl myControl = new MyUserControl();
             MyUserControlViewModel viewModel = IoC.Get<MyUserControlViewModel>();
