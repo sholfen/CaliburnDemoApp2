@@ -54,26 +54,27 @@ namespace CaliburnDemoApp2
 
             var resumed = false;
 
-            if (e.PreviousExecutionState == ApplicationExecutionState.Terminated) {
+            if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+            {
                 resumed = _navigationService.ResumeState();
             }
 
-            if (resumed) {
+            if (resumed)
+            {
                 Window.Current.Activate();
                 return;
             }
 
-            if (e.PreviousExecutionState != ApplicationExecutionState.Running) {
+            if (e.PreviousExecutionState != ApplicationExecutionState.Running)
+            {
                 //DisplayRootViewFor<MainPageViewModel>();
-
-
                 //DisplayRootView<TestUserControlPage>();
-                //DisplayRootView<MainPage>();
-                DisplayRootView<ValidationPage>();
+                DisplayRootView<MainPage>();
+                //DisplayRootView<ValidationPage>();
             }
         }
 
-        protected override void Configure() 
+        protected override void Configure()
         {
             //LogManager.GetLog = t => new DebugLog(t);
 
@@ -81,9 +82,9 @@ namespace CaliburnDemoApp2
             ViewModelLocator.AddNamespaceMapping("CaliburnDemoApp2", "CaliburnDemoApp2");
 
             var baseLocate = ViewLocator.LocateTypeForModelType;
-            ViewLocator.LocateTypeForModelType = (modelType, displayLocation, context) => {
-
-                var attribute = modelType.GetTypeInfo().GetCustomAttributes(typeof(ViewAttribute), false).OfType<ViewAttribute>().Where(x => x.Context == context).FirstOrDefault();
+            ViewLocator.LocateTypeForModelType = (modelType, displayLocation, context) =>
+            {
+                var attribute = modelType.GetTypeInfo().GetCustomAttributes(typeof(ViewAttribute), false).OfType<ViewAttribute>().FirstOrDefault();
                 return attribute != null ? attribute.ViewType : baseLocate(modelType, displayLocation, context);
             };
 

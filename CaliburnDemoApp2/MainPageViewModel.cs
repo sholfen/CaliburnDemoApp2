@@ -26,7 +26,8 @@ namespace CaliburnDemoApp2
             MessageDialog message = new MessageDialog("aaa3");
             //await message.ShowAsync();
 
-            this.navigationService.NavigateToViewModel<SecondPageViewModel>(DateTime.Now.ToString());
+            //this.navigationService.NavigateToViewModel<SecondPageViewModel>(DateTime.Now.ToString());
+            this.navigationService.NavigateToViewModel<ViewAttributePageViewModel>();
             //this.navigationService.NavigateToViewModel(typeof(TestUserControlPageViewModel));
         }
 

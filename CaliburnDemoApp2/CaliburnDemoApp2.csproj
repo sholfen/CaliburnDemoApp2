@@ -116,6 +116,13 @@
       <DependentUpon>ValidationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidationPageViewModel.cs" />
+    <Compile Include="ViewAttributePage.xaml.cs">
+      <DependentUpon>ViewAttributePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAttributePage2.xaml.cs">
+      <DependentUpon>ViewAttributePage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAttributePageViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="WebViewPage.xaml.cs">
       <DependentUpon>WebViewPage.xaml</DependentUpon>
@@ -172,6 +179,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ValidationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewAttributePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewAttributePage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
