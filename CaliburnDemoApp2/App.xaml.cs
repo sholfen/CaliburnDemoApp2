@@ -69,7 +69,7 @@ namespace CaliburnDemoApp2
             {
                 //DisplayRootViewFor<MainPageViewModel>();
                 //DisplayRootView<TestUserControlPage>();
-                DisplayRootView<MainPage>();
+                DisplayRootView<DesignTimePage>();
                 //DisplayRootView<ValidationPage>();
             }
         }
